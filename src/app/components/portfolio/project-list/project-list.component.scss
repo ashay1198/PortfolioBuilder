@@ -1,0 +1,30 @@
+.search-container {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    table {
+      font-size: 0.9rem;
+    }
+  }
+  .mat-icon-button {
+    border: 1px solid #fff;
+    background: #FFF;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .mat-icon-button:hover {
+    background-color: transparent;
+  }
+  
+  .mat-icon {
+    font-size: 20px;
+    color: #007bff; 
+  }
+  

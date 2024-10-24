@@ -1,0 +1,90 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input 
+          type="text" 
+          id="title" 
+          class="form-control" 
+          formControlName="title">
+        <div *ngIf="projectForm.get('title')?.invalid && projectForm.get('title')?.touched" class="text-danger">
+          Title is required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea 
+          id="description" 
+          class="form-control" 
+          formControlName="description"></textarea>
+        <div *ngIf="projectForm.get('description')?.invalid && projectForm.get('description')?.touched" class="text-danger">
+          Description is required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="technologies">Technologies</label>
+        <input 
+          type="text" 
+          id="technologies" 
+          class="form-control" 
+          formControlName="technologies">
+        <div *ngIf="projectForm.get('technologies')?.invalid && projectForm.get('technologies')?.touched" class="text-danger">
+          Technologies are required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="github_link">GitHub Link</label>
+        <input 
+          type="url" 
+          id="github_link" 
+          class="form-control" 
+          formControlName="github_link">
+        <div *ngIf="projectForm.get('github_link')?.invalid && projectForm.get('github_link')?.touched" class="text-danger">
+          GitHub link is required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="demo_link">Demo Link</label>
+        <input 
+          type="url" 
+          id="demo_link" 
+          class="form-control" 
+          formControlName="demo_link">
+        <div *ngIf="projectForm.get('demo_link')?.invalid && projectForm.get('demo_link')?.touched" class="text-danger">
+          Demo link is required.
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select 
+          id="category" 
+          class="form-control" 
+          formControlName="category">
+          <option value="" disabled>Select a category</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+        <div *ngIf="projectForm.get('category')?.invalid && projectForm.get('category')?.touched" class="text-danger">
+          Category is required.
+        </div>
+      </div>
+    
+    <!-- <div class="form-group">
+      <label for="images">Images (Optional)</label>
+      <input 
+        type="file" 
+        id="images" 
+        class="form-control" 
+        (change)="onFileChange($event)" 
+        multiple>
+      <div *ngIf="projectForm.get('images')?.touched" class="text-muted">
+        You can upload multiple images.
+      </div>
+    </div> -->
+    
+    <button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid">{{ isEditMode ? 'Update' : 'Add' }}</button>
+  </form>
+  
